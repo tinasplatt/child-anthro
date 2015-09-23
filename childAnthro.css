@@ -1,0 +1,36 @@
+#humanMeasures label {
+	display:block;
+	padding:10px;
+	border:solid #72728B 0.5px;
+	width:400px;
+	margin:0;
+
+}
+#humanMeasures label:hover {
+	background:#666666;
+}
+
+.measureActive{
+	background:red;
+}
+
+.selected {
+	color:red;
+}
+#humanMeasures{
+	float: top;
+}
+#humanMeasures a {
+	float:right;
+}
+
+#measureSelect button {
+	text-align:left;
+}
+#measureSelect button span {
+	float:right;
+}
+
+#measureSelect div {
+	display:inline-block;
+}
