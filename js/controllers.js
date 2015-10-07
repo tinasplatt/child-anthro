@@ -14,7 +14,7 @@ childAnthroApp.controller('MeasureListCtrl', function ($scope) {
   }
 });*/
 
-var childAnthroApp = angular.module("childAnthroApp", ["checklist-model",'ui-rangeSlider']);
+var childAnthroApp = angular.module('childAnthroApp', ["checklist-model"]);
 childAnthroApp.controller('MeasureListCtrl', function ($scope) {
   $scope.roles = [
     {'id': 'one','name': 'Nexus S', 'type':'data1',
@@ -24,9 +24,16 @@ childAnthroApp.controller('MeasureListCtrl', function ($scope) {
     {'id': 'three','name': 'MOTOROLA XOOM™', 'type':'data2',
      'snippet': 'The Next, Next Generation tablet.', 'selected': false}
   ];
+
   $scope.user = {
     roles:[]
   };
+  $scope.ageUnit = 'months';
+
+  $scope.gender='female';
+
+  $scope.race=1;
+  
   $scope.checkAll = function() {
     $scope.user.roles = angular.copy($scope.roles);
   };

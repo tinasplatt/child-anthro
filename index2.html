@@ -1,0 +1,71 @@
+<html ng-app="childAnthroApp">
+	<head>
+		<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+		<link rel="stylesheet" style="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" style="text/css" href="childAnthro.css">
+		<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/checklist-model/checklist-model.js"></script>
+		<script src="childAnthroApp.js"></script>
+		<link rel="stylesheet" style"text/css" href="./nouislider/nouislider.css">
+		
+		<script src="./nouislider/nouislider.js"></script>
+		<script src="./bower_components/angular-rangeslider/angular.rangeSlider.js"></script>
+		<link rel="stylesheet" style"text/css" href="./bower_components/angular-rangeslider/angular.rangeSlider.css">
+
+
+		<script src="user.js"></script>
+
+	</head>
+	<body>
+		<div id="controls">
+			<div id="basicControls"> 
+				<!--age, gender and race controls-->
+
+			</div>
+
+			<div id="measureSelect" ng-controller="MeasureListCtrl">
+				
+
+				<div class="btn-group" role="group" aria-label="...">
+					<button ng-repeat="gender in genders" type="button" class="btn btn-default" ng-class="{'active': gender.name == selectedGender.name}" ng-click="selectGender(gender)">{{gender.name}}</button>
+				</div><br>
+
+				<div class="btn-group" role="group" aria-label="...">
+					<button type="button" class="btn btn-default" ng-class="{'active': ageUnit == 'months'}" ng-click="ageUnit='months'">months</button>
+					<button type="button" class="btn btn-default" ng-class="{'active': ageUnit == 'years'}" ng-click="ageUnit='years'">years</button>
+				</div><br>
+
+				<div class="btn-group-vertical types" role="group" aria-label="...">
+					<button type="button" ng-repeat="type in types" class="btn btn-default" ng-class="{'active': type.altname == selectedtype}" ng-click="selecttype(type)">{{type.name}} <span class="glyphicon glyphicon-chevron-right" style="text-align:right"></span></button>
+				</div>
+			
+				<div id="humanMeasures">
+					<label ng-repeat="role in roles | filter: selectedtype" ng-class="{'measureActive': 'active'}" ng-click="selectMeasure(role)">
+						<input ng-attr-id='{{ role.id }}' type='checkbox' checklist-model="user.roles" 
+							checklist-value='role.id'>  <span> {{role.name}}</span>
+						<a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" 
+							data-content="{{role.snippet}}" data-measure-type="{{role.type}}"><span class="glyphicon glyphicon-exclamation-sign" ></span></a>
+					</label>
+					
+					
+
+				</div>
+
+				{{user.roles}}
+
+				<h1> showing all {{selectedGender.name}} children between {{ageSlider.min}} and {{ageSlider.max}} {{ageUnit}} of age</h1>
+
+				<div>
+					<div range-slider orientation="vertical" min="0" max="100" model-min="ageSlider.min" model-max="ageSlider.max"></div><br>
+				</div>
+
+				
+			</div>
+		</div>
+
+
+
+
+	</body>
+</html>

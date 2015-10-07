@@ -7,16 +7,35 @@
 		<script src="bower_components/angular/angular.js"></script>
 		<script src="bower_components/checklist-model/checklist-model.js"></script>
 		<script src="js/controllers.js"></script>
-		<script src="user.js"></script>
-		<script src="bower_components/angular-rangeslider/angular.rangeSlider.js"></script>
-		<link rel="stylesheet" href="bower_components/angular-rangeslider/angular.rangeSlider.css">
+		<link rel="stylesheet" style"text/css" href="./nouislider/nouislider.css">
+		<script src="./nouislider/nouislider.js"></script>
 
+
+		<script src="user.js"></script>
 
 	</head>
 	<body>
 		<div id="controls">
 			<div id="basicControls"> 
 				<!--age, gender and race controls-->
+				<h3>Age</h3>
+				<div class="btn-group" role="group" aria-label="...">
+					<button class="btn btn-default" ng-model="radioModel" btn-radio="'years'">years</button>
+					<button class="btn btn-default" ng-model="radioModel" btn-radio="'months'">months</button>
+				</div>
+				<div id="slider" class="noUiSlider"></div>
+				<h3>Gender</h3>
+				<div class="btn-group" role="group" aria-label="...">
+					<button class="btn btn-default" ng-model="radioModel" btn-radio="'male'">male</button>
+					<button class="btn btn-default" ng-model="radioModel" btn-radio="'female'">female</button>
+					<button class="btn btn-default" ng-model="radioModel" btn-radio="'both'">both</button>
+				</div>
+				<h3>Race</h3>
+				<div class="btn-group" role="group" aria-label="...">
+					<button class="btn btn-default" ng-model="radioModel" btn-radio="'1'">1</button>
+					<button class="btn btn-default" ng-model="radioModel" btn-radio="'2'">>2</button>
+					<button class="btn btn-default" ng-model="radioModel" btn-radio="'3'">>3</button>
+				</div>
 
 			</div>
 
@@ -37,7 +56,7 @@
 							data-content="{{role.snippet}}" data-measure-type="{{role.type}}"><span class="glyphicon glyphicon-exclamation-sign" ></span></a>
 					</label>
 					
-					<div range-slider min="0" max="100" model-min="min" model-max="max"></div>
+					
 
 				</div>
 

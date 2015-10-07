@@ -28,9 +28,14 @@
 	text-align:left;
 }
 #measureSelect button span {
-	float:right;
+	
 }
 
 #measureSelect div {
 	display:inline-block;
+}
+
+#basicControls {
+
+	width: 500px;
 }
